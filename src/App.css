@@ -338,6 +338,19 @@ footer p {
   .searchList {
     width: 71.57vw;
   }
+
+  /* filter  */
+  .filterArea{
+    font-size: 1.5rem;
+    display: grid;
+    width: 70%;
+    margin-left: 15%;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 0.5fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 40px;
+  }
+  /* end filter */
+
 } /* end Tablet */
 
 /*desktop*/
@@ -377,4 +390,16 @@ footer p {
     width: 78.2vw;
   }
   /* end RecipeList */
+
+  /* filter */
+.filterArea{
+  font-size: 1.8rem;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin:auto;
+  margin-bottom: 5%;
+}
+  /* end Filter */
 } /*end Desktop*/
