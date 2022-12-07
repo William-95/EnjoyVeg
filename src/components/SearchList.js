@@ -13,8 +13,11 @@ export default function SearchList() {
       <div className="searchListContainer">
         <div className="searchList">
           {recipeState.map((item) => {
+            
             return (
-              <RecipeCard title={item.title} id={item.id} image={item.image} />
+            
+              <RecipeCard title={item.title} id={item.id} image={item.image}/>
+             
             );
           })}
         </div>

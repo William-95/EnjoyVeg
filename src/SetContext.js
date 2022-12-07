@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// const apiKey2 = `apiKey=0205ee87d117432690b54c07f0e20f89`;
-const apiKey = `apiKey=1eba625fd6e54c87b44c656397f62614`;
+// const apiKey2=`apiKey=0205ee87d117432690b54c07f0e20f89`;
+const apiKey=`apiKey=31f3807eea49404c9733ab813bf795ad`;
 
 
 export const RecipeContext = React.createContext();
@@ -9,7 +9,7 @@ export const RecipeContext = React.createContext();
 export default function SetContext({ children }) {
   /*axios*/
   const api = axios.create({
-    baseURL: `https://api.spoonacular.com/recipes/`,
+    baseURL:`https://api.spoonacular.com/recipes/`,
     params:{
       addRecipeInformation:true,
       number:8,
@@ -31,14 +31,8 @@ export default function SetContext({ children }) {
   /*requestApi*/
   useEffect(() => {
     api
-      .get(`complexSearch?${apiKey}
-      &query=${value}
-      &cuisine=${cuisine}
-      &intolerances=${intolerance}
-      &maxCalories=${calories}
-      &maxProtein=${protein}
-      &maxFat=${fat} 
-      `)
+      .get(`complexSearch?${apiKey}&query=${value}&cuisine=${cuisine}&intolerances=${intolerance}&maxProtein=${protein}&maxCalories=${calories}&maxFat=${fat}`)
+       
 
       .then((response) => {
         setRecipeState(response.data.results);
