@@ -38,7 +38,7 @@ The application ends with a step-by-step guide.
 <br/>
 <br/>
 - To test the app ==>
-_[follow this link](https://enjoyveg.netlify.app/) _
+_[follow this link](https://enjoyveg.netlify.app/)_
 
 <p align=right><a href="#0">back to top</a></p>
 
