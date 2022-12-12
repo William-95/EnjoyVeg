@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
 import Loading from "./Loading";
 
-// const apiKey = `apiKey=0205ee87d117432690b54c07f0e20f89`;
- const apiKey=`apiKey=31f3807eea49404c9733ab813bf795ad`;
+// const apiKey2 = `apiKey=0205ee87d117432690b54c07f0e20f89`;
+//  const apiKey3=`apiKey=31f3807eea49404c9733ab813bf795ad`;
+const apiKey=`apiKey=e096d1341aa24ad9b45c7459b5a1c1fd`;
 
 export default function SingleRequest() {
   let params = useParams();
@@ -24,7 +25,8 @@ export default function SingleRequest() {
     const newRecipeState = recipeState.filter((item) => item.id === id);
     setFilterId(newRecipeState);
   };
-  
+
+  /*card request*/
   useEffect(() => {
     api
       .get(`${params.id}/card?${apiKey}`)
@@ -38,6 +40,7 @@ export default function SingleRequest() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.id]);
+  /*end card request*/
 
   useEffect(() => {
     filterById(params.id);
