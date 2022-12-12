@@ -21,7 +21,7 @@ export default function SingleRequest() {
   /*end Loading*/
 
   const filterById = (id) => {
-    const newRecipeState = recipeState.filter((item) => item.id == id);
+    const newRecipeState = recipeState.filter((item) => item.id === id);
     setFilterId(newRecipeState);
   };
   
@@ -41,6 +41,7 @@ export default function SingleRequest() {
 
   useEffect(() => {
     filterById(params.id);
+    // eslint-disable-next-line
   }, [oneRecipe]);
 
   if (load.load === true) {
@@ -53,7 +54,7 @@ export default function SingleRequest() {
       </div>
       <div className="btnCenter">
         <button className="btn-primary">
-          <a href={filterId[0].sourceUrl} target="_blank">
+          <a href={filterId[0].sourceUrl} target="_blank" rel="noreferrer">
             Complete Recipe
           </a>
         </button>

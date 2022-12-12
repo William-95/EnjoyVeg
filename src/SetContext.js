@@ -42,7 +42,8 @@ export default function SetContext({ children }) {
       )
 
       .then((response) => {
-        setRecipeState(response.data.results), setLoading({ loading: false });
+        setRecipeState(response.data.results);
+         setLoading({ loading: false });
       })
 
       .catch((err) => console.log(err));
