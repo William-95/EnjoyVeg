@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
-import { RecipeContext } from "../SetContext";
-
 import Feature from "../components/Feature";
 import RandomRecipe from "../components/RandomRecipe";
 
-export default function Home() {
-  const { recipeState } = useContext(RecipeContext);
 
+
+export default function Home() {
   return (
     <div>
       <header className="headerBg">
@@ -22,7 +20,7 @@ export default function Home() {
       
       <Feature/>
       <RandomRecipe/>
-
+     
         
     </div>
   );
