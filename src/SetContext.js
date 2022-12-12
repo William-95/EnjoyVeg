@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const apiKey = `apiKey=0205ee87d117432690b54c07f0e20f89`;
-// const apiKey=`apiKey=31f3807eea49404c9733ab813bf795ad`;
+// const apiKey = `apiKey=0205ee87d117432690b54c07f0e20f89`;
+ const apiKey=`apiKey=31f3807eea49404c9733ab813bf795ad`;
 
 export const RecipeContext = React.createContext();
 

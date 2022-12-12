@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
 import Loading from "./Loading";
 
-const apiKey = `apiKey=0205ee87d117432690b54c07f0e20f89`;
-// const apiKey=`apiKey=31f3807eea49404c9733ab813bf795ad`;
+// const apiKey = `apiKey=0205ee87d117432690b54c07f0e20f89`;
+ const apiKey=`apiKey=31f3807eea49404c9733ab813bf795ad`;
 
 export default function SingleRequest() {
   let params = useParams();
