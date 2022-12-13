@@ -19,7 +19,7 @@ export default function RandomRecipe() {
         {recipeState.map((item) => {
           return (
             <div className="recipeCard">
-              <RecipeCard title={item.title} id={item.id} image={item.image} />
+              <RecipeCard title={item.title} key={item.id} id={item.id} image={item.image} />
             </div>
           );
         })}

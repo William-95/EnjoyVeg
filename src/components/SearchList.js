@@ -21,7 +21,7 @@ export default function SearchList() {
             
             return (
             
-              <RecipeCard title={item.title} id={item.id} image={item.image}/>
+              <RecipeCard title={item.title} key={item.id} id={item.id} image={item.image}/>
              
             );
           })}

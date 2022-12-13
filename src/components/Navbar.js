@@ -19,21 +19,21 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="navbar">
-        <div className="nav-center">
-          <div className="nav-header">
+        <div className="navCenter">
+          <div className="navHeader">
             <Link to="/">
-              <img className='nav-logo' src={logo} alt=''/>
+              <img className='navLogo' src={logo} alt=''/>
             </Link>
             <SearchBar/>
             <button 
             type="button" 
-            className="nav-btn"
+            className="navBtn"
             onClick={this.handleToggle}>
-              <FaAlignRight className="nav-icon"/>
+              <FaAlignRight className="navIcon"/>
             </button>
           </div>
         
-          <ul className={this.state.isOpen?"nav-links show-nav":"nav-links"}>
+          <ul className={this.state.isOpen?"navLinks showNav":"navLinks"}>
             <li>
               <Link to="/">Home</Link>
             </li>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// const apiKey2 = `apiKey=0205ee87d117432690b54c07f0e20f89`;
+const apiKey = `apiKey=0205ee87d117432690b54c07f0e20f89`;
 //  const apiKey3=`apiKey=31f3807eea49404c9733ab813bf795ad`;
- const apiKey=`apiKey=e096d1341aa24ad9b45c7459b5a1c1fd`
+//  const apiKey2=`apiKey=e096d1341aa24ad9b45c7459b5a1c1fd`
 export const RecipeContext = React.createContext();
 
 export default function SetContext({ children }) {
@@ -43,7 +43,7 @@ export default function SetContext({ children }) {
 
       .then((response) => {
         setRecipeState(response.data.results);
-         setLoading({ loading: false });
+        setLoading({ loading: false });
       })
 
       .catch((err) => console.log(err));

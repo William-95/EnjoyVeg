@@ -16,7 +16,7 @@ export default function SearchBar() {
    history.push('/recipeslist/')
   }
   return (
-    <div className='container-form'>
+    <div className='containerForm'>
       <form onSubmit={handleSubmit} className='formSearch'>
       <FcSearch onClick={handleClick}/>
       <input
