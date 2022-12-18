@@ -1,25 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-const apiKey = `apiKey=0205ee87d117432690b54c07f0e20f89`;
-//  const apiKey3=`apiKey=31f3807eea49404c9733ab813bf795ad`;
-//  const apiKey2=`apiKey=e096d1341aa24ad9b45c7459b5a1c1fd`
+import Request from "./components/ClientApi";
+
 export const RecipeContext = React.createContext();
 
 export default function SetContext({ children }) {
-  /*axios*/
-  const api = axios.create({
-    baseURL: `https://api.spoonacular.com/recipes/`,
-    params: {
-      addRecipeInformation: true,
-      number: 100,
-      diet: `vegetarian`,
-      responseType: "json",
-    },
-  });
-
   /*state*/
   const [recipeState, setRecipeState] = useState([{}]);
+  const [oneRecipe, setOneRecipe] = useState([{}]);
   const [loading, setLoading] = useState([{}]);
+  const [load, setLoad] = useState([{}]);
   const [value, setValue] = useState(``);
   const [valueButton, setValueButton] = useState(``);
   const [cuisine, setCuisine] = useState(``);
@@ -34,31 +23,18 @@ export default function SetContext({ children }) {
   }, []);
   /*end Loading*/
 
-  /*requestApi*/
-  useEffect(() => {
-    api
-      .get(
-        `complexSearch?${apiKey}&query=${value}&cuisine=${cuisine}&intolerances=${intolerance}&maxProtein=${protein}&maxCalories=${calories}&maxFat=${fat}`
-      )
-
-      .then((response) => {
-        setRecipeState(response.data.results);
-        setLoading({ loading: false });
-      })
-
-      .catch((err) => console.log(err));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [valueButton, cuisine, intolerance, protein, calories, fat]);
-
   return (
     <>
       <RecipeContext.Provider
         value={{
-          api,
           recipeState,
           setRecipeState,
+          oneRecipe,
+          setOneRecipe,
           loading,
           setLoading,
+          load,
+          setLoad,
           value,
           setValue,
           valueButton,
@@ -75,6 +51,7 @@ export default function SetContext({ children }) {
           setFat,
         }}
       >
+        <Request.ClientApi />
         {children}
       </RecipeContext.Provider>
     </>
