@@ -15,7 +15,7 @@ const api = axios.create({
   baseURL: `https://api.spoonacular.com/recipes/`,
   params: {
     addRecipeInformation: true,
-    number: 100,
+    number: 5,
     diet: `vegetarian`,
     responseType: "json",
   },
@@ -81,6 +81,8 @@ function SingleClientApi() {
   }, [params.id]);
   
   
+
+
     return<></>
 }
 /*End SingleClienAPI*/

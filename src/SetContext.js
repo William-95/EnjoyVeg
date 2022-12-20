@@ -9,6 +9,7 @@ export default function SetContext({ children }) {
   const [oneRecipe, setOneRecipe] = useState([{}]);
   const [loading, setLoading] = useState([{}]);
   const [load, setLoad] = useState([{}]);
+  const[filterId,setFilterd]=useState([{}])
   const [value, setValue] = useState(``);
   const [valueButton, setValueButton] = useState(``);
   const [cuisine, setCuisine] = useState(``);
@@ -35,6 +36,7 @@ export default function SetContext({ children }) {
           setLoading,
           load,
           setLoad,
+          filterId,setFilterd,
           value,
           setValue,
           valueButton,

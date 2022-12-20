@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
 import Loading from "./Loading";
@@ -7,35 +7,40 @@ import Request from "./ClientApi";
 export default function SingleRequest() {
   let params = useParams();
   const { recipeState, oneRecipe, load, setLoad } = useContext(RecipeContext);
-
   const [filterId, setFilterId] = useState(recipeState);
+
+  const filterById = (i) => {
+    const newRecipeState = recipeState.filter((item) => item.id === i);
+    setFilterId(newRecipeState);
+    console.log(filterId);
+  };
 
   /*Loading*/
   useEffect(() => {
     setLoad({ load: true });
+
+    const timer = setTimeout(() => {
+      setLoad({ load: false });
+    }, 1000);
+    
+    
+    return () => clearTimeout(timer);
+    
     // eslint-disable-next-line
   }, []);
   /*end Loading*/
 
-  const filterById = (id) => {
-    const newRecipeState = recipeState.filter((item) => item.id === id);
-    
-    setFilterId(newRecipeState);
-    
-  };
-
-
   useEffect(() => {
     filterById(params.id);
-    console.log(filterId);
     // eslint-disable-next-line
   }, [oneRecipe]);
 
   if (load.load === true) {
-    return <Loading />&&<Request.SingleClientApi/>;
+    return <Loading />;
   }
   return (
     <div>
+      <Request.SingleClientApi />
       <div className="oneRecipeArticle">
         <img src={oneRecipe.url} alt="" />
       </div>
