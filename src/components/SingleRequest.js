@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+// import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
 import Loading from "./Loading";
 import Request from "./ClientApi";
 
 export default function SingleRequest() {
-  let params = useParams();
-  const { recipeState, oneRecipe, load, setLoad } = useContext(RecipeContext);
-  const [filterId, setFilterId] = useState(recipeState);
+  // let params = useParams();
+  const { filterId,  oneRecipe, load, setLoad } = useContext(RecipeContext);
+  
 
-  const filterById = (i) => {
-    const newRecipeState = recipeState.filter((item) => item.id === i);
-    setFilterId(newRecipeState);
-    console.log(filterId);
-  };
+  // const filterById = (i) => {
+  //   const newRecipeState = recipeState.filter((item) => item.id === i);
+  //   setFilterId(newRecipeState);
+  //   console.log(filterId);
+  // };
 
   /*Loading*/
   useEffect(() => {
@@ -30,10 +30,10 @@ export default function SingleRequest() {
   }, []);
   /*end Loading*/
 
-  useEffect(() => {
-    filterById(params.id);
-    // eslint-disable-next-line
-  }, [oneRecipe]);
+  // useEffect(() => {
+  //   filterById(params.id);
+  //   // eslint-disable-next-line
+  // }, [oneRecipe]);
 
   if (load.load === true) {
     return <Loading />;
