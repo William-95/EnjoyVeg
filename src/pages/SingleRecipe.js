@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "../components/Banner";
 import { Link } from "react-router-dom/";
 import SingleRequest from "../components/SingleRequest";
+import OneRequest from "../components/OneRequest"
 
 export default function SingleRecipe() {
   return (
@@ -16,6 +17,7 @@ export default function SingleRecipe() {
         </Banner>
       </header>
       <SingleRequest />
+      <OneRequest />
     </div>
   );
 }
