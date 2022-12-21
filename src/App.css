@@ -324,21 +324,93 @@ h4 {
   width: 90%;
   padding: 2%;
 }
-
+/* oneRecipePage */
+.oneContainer {
+  border: 2px solid var(--darkGreen);
+  border-radius: 8px;
+  width: 90%;
+  margin-top: 2%;
+  margin-left: 5%;
+  text-align: center;
+}
+.oneContainer h2 {
+  margin: 4%;
+}
+.oneContainer img {
+  border-radius: 8px;
+  width: 80%;
+  margin: 4%;
+}
+.ingredientContainer {
+  display:none;
+  
+  padding: 2%;
+  height: auto;
+  width: 70vw;
+  margin: 2% auto;
+  
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 40px;
+}
+.singleIngredient {
+  border-radius: 8px;
+  border: 2px solid var(--darkGreen);
+  box-shadow: var(--lightShadow);
+}
+.singleIngredient h3 {
+  margin: 3%;
+  font-size: 1.7rem;
+}
+.singleIngredient h4{
+  color: var(--darkGreen);
+}
+.listIngr {
+  margin: 10% 0 10% 0;
+}
+.ingredientProcedure{
+  margin:10%;
+}
+.singleIngredient:hover {
+  box-shadow: var(--darkShadow);
+}
+.recipeSumaryContainer{
+  display:none;
+margin:5%;
+border:2px solid var(--darkGreen)
+}
+.recipeSumaryContainer h3{
+  margin:4%;
+  font-size: 1.7rem;  
+}
+.recipeSummary{
+  margin:5%;
+}
+.btnChange{
+  margin:10%;
+}
+.btnChange button{
+  color:var(--mainGrey);
+}
 .btnCenter {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 3rem;
-}
+  }
 .btnCenter a {
+    text-decoration: none;
+}
+.btnCenter button{
   color: var(--mainGrey);
-  text-decoration: none;
 }
 .btnCenter button :hover {
   color: var(--darkGreen);
 }
-/* end oneRecipe */
+.active{
+  display:grid;
+}
+/* end oneRecipePage */
 
 /* Footer */
 footer {

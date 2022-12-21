@@ -1,20 +1,22 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
 import Loading from "./Loading";
 import Request from "./ClientApi";
+import classNames from "classnames";
 
 export default function SingleRequest() {
   let params = useParams();
-  const { recipeState, oneRecipe, load, setLoad } = useContext(RecipeContext);
-
+  const { recipeState, load, setLoad } = useContext(RecipeContext);
+  const [active, setActive] = useState({ act: "summary" });
   // Filtered Data
   const newRecipeState = recipeState.filter((recipe) => {
     return recipe.id === parseInt(params.id);
   });
+
   // eslint-disable-next-line
   var ingr = newRecipeState[0].analyzedInstructions[0].steps;
-  console.log(ingr);
+
   /*Loading*/
   useEffect(() => {
     setLoad({ load: true });
@@ -24,11 +26,10 @@ export default function SingleRequest() {
     }, 1000);
 
     return () => clearTimeout(timer);
-
     // eslint-disable-next-line
   }, []);
-
   /*end Loading*/
+  console.log(active);
 
   if (load.load === true) {
     return <Loading />;
@@ -36,37 +37,57 @@ export default function SingleRequest() {
   return (
     <div>
       <Request.SingleClientApi />
-      <div className="oneRecipeArticle">
+      {/* <div className="oneRecipeArticle">
         <img src={oneRecipe.url} alt="" />
-      </div>
+      </div> */}
 
-      <div>
+      <div className="oneContainer">
         <h2>{newRecipeState[0].title}</h2>
         <img src={newRecipeState[0].image} alt="" />
+        <div className="btnChange">
+          <button className="btnPrimary" onClick={() => setActive({ act: "summary" })}>Summary</button>
+          <button className="btnPrimary" onClick={() => setActive({ act: "instruction" })}>
+            Instruction
+          </button>
+        </div>
+        <div
+          className={classNames("ingredientContainer", {
+            active: active.act === "instruction",
+          })}
+        >
+          {ingr.map((item) => {
+            return (
+              <div className="singleIngredient">
+                <h3>Step: {item.number}</h3>
 
-        {ingr.map((item) => {
-          return (
-            <div>
-              <h4>Step: {item.number}</h4>
-              <div>
-                <h5>Ingredients:</h5>
-                <ul>
-                  {item.ingredients.map((ingredient) => {
-                    return <il>{ingredient.name}</il>;
-                  })}
-                </ul>
+                <div className="listIngr">
+                  <h4>Ingredients:</h4>
+                  <ul>
+                    {item.ingredients.map((ingredient) => {
+                      return <li>{ingredient.name}</li>;
+                    })}
+                  </ul>
+                </div>
+                <div className="ingredientProcedure">
+                  <h4>Procedure:</h4>
+                  <article>{item.step}</article>
+                </div>
               </div>
-              <div>
-                <h5>Procedure:</h5>
-                <article>{item.step}</article>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
 
-        <article
-          dangerouslySetInnerHTML={{ __html: newRecipeState[0].summary }}
-        ></article>
+        <div
+          className={classNames("recipeSumaryContainer", {
+            active: active.act === "summary",
+          })}
+        >
+          <h3>Summary</h3>
+          <article
+            dangerouslySetInnerHTML={{ __html: newRecipeState[0].summary }}
+            className="recipeSummary"
+          ></article>
+        </div>
       </div>
 
       <div className="btnCenter">
