@@ -1,20 +1,20 @@
 import React, { useContext, useEffect } from "react";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
 import Loading from "./Loading";
 import Request from "./ClientApi";
 
 export default function SingleRequest() {
-  // let params = useParams();
-  const { filterId,  oneRecipe, load, setLoad } = useContext(RecipeContext);
-  
+  let params = useParams();
+  const { recipeState, oneRecipe, load, setLoad } = useContext(RecipeContext);
 
-  // const filterById = (i) => {
-  //   const newRecipeState = recipeState.filter((item) => item.id === i);
-  //   setFilterId(newRecipeState);
-  //   console.log(filterId);
-  // };
-
+  // Filtered Data
+  const newRecipeState = recipeState.filter((recipe) => {
+    return recipe.id === parseInt(params.id);
+  });
+  // eslint-disable-next-line
+  var ingr = newRecipeState[0].analyzedInstructions[0].steps;
+  console.log(ingr);
   /*Loading*/
   useEffect(() => {
     setLoad({ load: true });
@@ -22,18 +22,13 @@ export default function SingleRequest() {
     const timer = setTimeout(() => {
       setLoad({ load: false });
     }, 1000);
-    
-    
+
     return () => clearTimeout(timer);
-    
+
     // eslint-disable-next-line
   }, []);
-  /*end Loading*/
 
-  // useEffect(() => {
-  //   filterById(params.id);
-  //   // eslint-disable-next-line
-  // }, [oneRecipe]);
+  /*end Loading*/
 
   if (load.load === true) {
     return <Loading />;
@@ -44,12 +39,40 @@ export default function SingleRequest() {
       <div className="oneRecipeArticle">
         <img src={oneRecipe.url} alt="" />
       </div>
+
+      <div>
+        <h2>{newRecipeState[0].title}</h2>
+        <img src={newRecipeState[0].image} alt="" />
+
+        {ingr.map((item) => {
+          return (
+            <div>
+              <h4>Step: {item.number}</h4>
+              <div>
+                <h5>Ingredients:</h5>
+                <ul>
+                  {item.ingredients.map((ingredient) => {
+                    return <il>{ingredient.name}</il>;
+                  })}
+                </ul>
+              </div>
+              <div>
+                <h5>Procedure:</h5>
+                <article>{item.step}</article>
+              </div>
+            </div>
+          );
+        })}
+
+        <article
+          dangerouslySetInnerHTML={{ __html: newRecipeState[0].summary }}
+        ></article>
+      </div>
+
       <div className="btnCenter">
-        <button className="btnPrimary">
-          <a href={filterId.sourceUrl} target="_blank" rel="noreferrer">
-            Complete Recipe
-          </a>
-        </button>
+        <a href={newRecipeState[0].sourceUrl} target="_blank" rel="noreferrer">
+          <button className="btnPrimary">More</button>
+        </a>
       </div>
     </div>
   );
