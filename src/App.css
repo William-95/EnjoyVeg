@@ -409,6 +409,7 @@ border:2px solid var(--darkGreen)
 }
 .active{
   display:grid;
+  
 }
 /* end oneRecipePage */
 
