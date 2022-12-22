@@ -17,7 +17,7 @@ const api = axios.create({
 
 /*ClienAPI Function*/
 function ClientApi() {
-  const API_KEY=process.env.REACT_APP_API_KEY
+  const API_KEY=process.env.REACT_APP_NODE_ENV
   const {
     valueButton,
     setRecipeState,
