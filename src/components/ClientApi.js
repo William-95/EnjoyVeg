@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
 
 /*apiKey */
@@ -58,34 +58,34 @@ function ClientApi() {
 }
 /*End ClienAPI*/
 
-/*SingleClienAPI Function*/
-function SingleClientApi() {
-    let params = useParams();
+// /*SingleClienAPI Function*/
+// function SingleClientApi() {
+//     let params = useParams();
 
-    const {setLoad,setOneRecipe} = useContext(RecipeContext);
+//     const {setLoad,setOneRecipe} = useContext(RecipeContext);
  
 
- useEffect(() => {
-    api
-      .get(`${params.id}/card?${process.env.REACT_APP_API_KEY}`)
+//  useEffect(() => {
+//     api
+//       .get(`${params.id}/card?${process.env.REACT_APP_API_KEY}`)
 
-      .then((response) => {
-        setOneRecipe(response.data);
-        setLoad({ load:false });
+//       .then((response) => {
+//         setOneRecipe(response.data);
+//         setLoad({ load:false });
         
-      })
+//       })
 
-      .catch((err) => console.log(err));
+//       .catch((err) => console.log(err));
 
-   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.id]);
+//    // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [params.id]);
   
   
 
 
-    return<></>
-}
-/*End SingleClienAPI*/
+//     return<></>
+// }
+// /*End SingleClienAPI*/
 
-const Request={ClientApi,SingleClientApi}
+const Request={ClientApi}
 export default Request

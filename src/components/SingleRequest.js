@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
 import Loading from "./Loading";
-import Request from "./ClientApi";
 import classNames from "classnames";
 
 export default function SingleRequest() {
@@ -36,7 +35,7 @@ export default function SingleRequest() {
   }
   return (
     <div>
-      <Request.SingleClientApi />
+      
       {/* <div className="oneRecipeArticle">
         <img src={oneRecipe.url} alt="" />
       </div> */}

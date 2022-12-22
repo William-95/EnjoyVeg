@@ -311,6 +311,7 @@ h4 {
 }
 /* end RecipeList */
 /* oneRecipe */
+
 .oneRecipeArticle {
   width: 90%;
   margin-top: 2rem;
@@ -327,10 +328,16 @@ h4 {
 /* oneRecipePage */
 .oneContainer {
   border: 2px solid var(--darkGreen);
+  background: rgb(41, 93, 9);
+  background: linear-gradient(
+    85deg,
+    rgba(41, 93, 9, 1) 0%,
+    rgba(236, 236, 236, 1) 50%,
+    rgba(41, 93, 9, 1) 100%
+  );
   border-radius: 8px;
   width: 90%;
-  margin-top: 2%;
-  margin-left: 5%;
+ margin:5%;
   text-align: center;
 }
 .oneContainer h2 {
@@ -342,13 +349,13 @@ h4 {
   margin: 4%;
 }
 .ingredientContainer {
-  display:none;
-  
+  display: none;
+
   padding: 2%;
   height: auto;
   width: 70vw;
   margin: 2% auto;
-  
+
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   grid-row-gap: 2rem;
   grid-column-gap: 40px;
@@ -362,54 +369,54 @@ h4 {
   margin: 3%;
   font-size: 1.7rem;
 }
-.singleIngredient h4{
+.singleIngredient h4 {
   color: var(--darkGreen);
 }
 .listIngr {
   margin: 10% 0 10% 0;
 }
-.ingredientProcedure{
-  margin:10%;
+.ingredientProcedure {
+  margin: 10%;
 }
 .singleIngredient:hover {
   box-shadow: var(--darkShadow);
 }
-.recipeSumaryContainer{
-  display:none;
-margin:5%;
-border:2px solid var(--darkGreen)
+.recipeSumaryContainer {
+  display: none;
+  margin: 5%;
+  
 }
-.recipeSumaryContainer h3{
-  margin:4%;
-  font-size: 1.7rem;  
+.recipeSumaryContainer h3 {
+  margin: 4%;
+  font-size: 1.7rem;
 }
-.recipeSummary{
-  margin:5%;
+.recipeSummary {
+  margin: 5%;
 }
-.btnChange{
-  margin:10%;
+
+.btnChange {
+  margin: 10%;
 }
-.btnChange button{
-  color:var(--mainGrey);
+.btnChange button {
+  color: var(--mainGrey);
 }
 .btnCenter {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 3rem;
-  }
-.btnCenter a {
-    text-decoration: none;
 }
-.btnCenter button{
+.btnCenter a {
+  text-decoration: none;
+}
+.btnCenter button {
   color: var(--mainGrey);
 }
 .btnCenter button :hover {
   color: var(--darkGreen);
 }
-.active{
-  display:grid;
-  
+.active {
+  display: grid;
 }
 /* end oneRecipePage */
 
@@ -558,4 +565,5 @@ footer p {
     transform: scale(1) rotate(360deg);
   }
 }
+
 /* end animation */

@@ -15,7 +15,7 @@ export default function SingleRecipe() {
           </Link>
         </Banner>
       </header>
-      <SingleRequest />
+      <SingleRequest  />
       
     </div>
   );
