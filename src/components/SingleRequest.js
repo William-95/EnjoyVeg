@@ -35,20 +35,26 @@ export default function SingleRequest() {
   }
   return (
     <div>
-      
-      {/* <div className="oneRecipeArticle">
-        <img src={oneRecipe.url} alt="" />
-      </div> */}
-
       <div className="oneContainer">
         <h2>{newRecipeState[0].title}</h2>
         <img src={newRecipeState[0].image} alt="" />
+        {/* BtnChange */}
         <div className="btnChange">
-          <button className="btnPrimary" onClick={() => setActive({ act: "summary" })}>Summary</button>
-          <button className="btnPrimary" onClick={() => setActive({ act: "instruction" })}>
+          <button
+            className="btnPrimary"
+            onClick={() => setActive({ act: "summary" })}
+          >
+            Summary
+          </button>
+          <button
+            className="btnPrimary"
+            onClick={() => setActive({ act: "instruction" })}
+          >
             Instruction
           </button>
         </div>
+        {/*End BtnChange */}
+        {/* instructionSection */}
         <div
           className={classNames("ingredientContainer", {
             active: active.act === "instruction",
@@ -75,7 +81,9 @@ export default function SingleRequest() {
             );
           })}
         </div>
+        {/* End instructionSection */}
 
+        {/* summarySection */}
         <div
           className={classNames("recipeSumaryContainer", {
             active: active.act === "summary",
@@ -87,13 +95,17 @@ export default function SingleRequest() {
             className="recipeSummary"
           ></article>
         </div>
+        {/*end summarySection */}
       </div>
 
+      {/* BtnMore */}
       <div className="btnCenter">
         <a href={newRecipeState[0].sourceUrl} target="_blank" rel="noreferrer">
           <button className="btnPrimary">More</button>
         </a>
       </div>
+      {/* end BtnMore */}
+      
     </div>
   );
 }

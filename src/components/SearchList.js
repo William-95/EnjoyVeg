@@ -6,9 +6,9 @@ import Filter from "./Filter";
 import Loading from "./Loading";
 
 export default function SearchList() {
-  const { recipeState,loading } = useContext(RecipeContext);
-  
-  if (loading.loading ===true) {
+  const { recipeState, loading } = useContext(RecipeContext);
+
+  if (loading.loading === true) {
     return <Loading />;
   }
   return (
@@ -18,11 +18,13 @@ export default function SearchList() {
       <div className="searchListContainer">
         <div className="searchList">
           {recipeState.map((item) => {
-            
             return (
-            
-              <RecipeCard title={item.title} key={item.id} id={item.id} image={item.image}/>
-             
+              <RecipeCard
+                title={item.title}
+                key={item.id}
+                id={item.id}
+                image={item.image}
+              />
             );
           })}
         </div>
