@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
-// import { useParams } from "react-router-dom";
 import { RecipeContext } from "../SetContext";
+
 
 /*axios*/
 const api = axios.create({
@@ -17,7 +17,7 @@ const api = axios.create({
 
 /*ClienAPI Function*/
 function ClientApi() {
-  const API_KEY=process.env.REACT_APP_API_KEY
+ 
   const {
     valueButton,
     setRecipeState,
@@ -34,7 +34,7 @@ function ClientApi() {
   useEffect(() => {
     api
       .get(
-        `complexSearch?${API_KEY}&query=${value}&cuisine=${cuisine}&intolerances=${intolerance}&maxProtein=${protein}&maxCalories=${calories}&maxFat=${fat}`
+        `complexSearch?${process.env.REACT_APP_API_KEY}&query=${value}&cuisine=${cuisine}&intolerances=${intolerance}&maxProtein=${protein}&maxCalories=${calories}&maxFat=${fat}`
       )
 
       .then((response) => {
