@@ -558,6 +558,15 @@ footer p {
   /* end oneRecipePage */
 } /*end Desktop*/
 
+/* max desktop */
+@media screen and (min-width: 1300px) {
+  .oneContainer img{
+    width: 30%;
+  }
+}
+
+/* max desktop */
+
 /* animation */
 @keyframes rotate {
   0% {
