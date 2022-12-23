@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 import { RecipeContext } from "../SetContext";
 
-
 /*axios*/
 const api = axios.create({
   baseURL: `https://api.spoonacular.com/recipes/`,
@@ -14,10 +13,8 @@ const api = axios.create({
   },
 });
 
-
 /*ClienAPI Function*/
 function ClientApi() {
- 
   const {
     valueButton,
     setRecipeState,
