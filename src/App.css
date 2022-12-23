@@ -560,7 +560,7 @@ footer p {
 
 /* max desktop */
 @media screen and (min-width: 1400px) {
-  .oneContainer img{
+  .oneContainer img {
     width: 30%;
   }
 }
