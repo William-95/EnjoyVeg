@@ -28,7 +28,7 @@ export default function SingleRequest() {
     // eslint-disable-next-line
   }, []);
   /*end Loading*/
-  console.log(active);
+  
 
   if (load.load === true) {
     return <Loading />;
